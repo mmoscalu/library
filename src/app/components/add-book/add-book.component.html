@@ -1,0 +1,56 @@
+<h2>Add book: {{book.title}}</h2>
+<form class="col-md-6 mx-auto text-center border mt-3 mb-3 p-3 shadow-lg bg-white rounded"  #form="ngForm" (submit)="addBook(form.value)">
+  <div>
+    <div class="ui-g ui-fluid">
+      <label for="title">Add title book</label>
+      <input type="text"
+             pInputText
+             name="title"
+             id="title"
+             #title="ngModel"
+             [(ngModel)]="book.title"
+             required
+      />
+    </div>
+    <div class="ui-g ui-fluid">
+      <label for="author">Add year book</label>
+      <input type="text"
+             pInputText
+             name="year"
+             id="year"
+             #year="ngModel"
+             [(ngModel)]="book.year"
+             required
+      />
+    </div>
+    <div class="ui-g ui-fluid">
+      <label for="author">Add author book</label>
+      <input type="text"
+             pInputText
+             name="author"
+             id="author"
+             #author="ngModel"
+             [(ngModel)]="book.author"
+             required
+      />
+    </div>
+    <div class="ui-g ui-fluid">
+      <label for="author">Add genre book</label>
+      <input type="text"
+             pInputText
+             name="genre"
+             id="genre"
+             #genre="ngModel"
+             [(ngModel)]="book.genre"
+             required
+      />
+    </div>
+  </div>
+  <button class="btn btn-primary mt-3 shadow-lg rounded"
+          [disabled]="title.invalid || year.invalid || author.invalid || genre.invalid "
+  >Save</button>
+  <button class="btn btn-danger mt-3 shadow-lg rounded"
+          (click)="backBtn()"
+  >Cancel</button>
+
+</form>

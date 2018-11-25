@@ -1,0 +1,44 @@
+<div class="mb-3 mt-3">
+  <p-button label="Add book" routerLink="/new"></p-button>
+</div>
+<!--PrimeNG table-->
+<p-table [value]="books" class="mb-3">
+  <ng-template pTemplate="header">
+    <tr class="text-center">
+      <th width="5%">Id</th>
+      <th width="30%">Title</th>
+      <th width="10%">Year</th>
+      <th width="15%">Author</th>
+      <th width="10%">Genre</th>
+      <th width="10%">Show</th>
+      <th width="10%">Edit</th>
+      <th width="10%">Delete</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-book>
+    <tr class="text-center">
+      <td>{{book.id}}</td>
+      <td>{{book.title}}</td>
+      <td>{{book.year}}</td>
+      <td>{{book.author}}</td>
+      <td>{{book.genre}}</td>
+      <td><button pButton
+                  type="button"
+                  label="Show"
+                  class="ui-button-info"
+      ></button></td>
+      <td><button pButton
+                  type="button"
+                  label="Edit"
+                  class="ui-button-warning"
+                  routerLink="/edit/{{book.id}}"
+      ></button></td>
+      <td><button pButton
+                  type="button"
+                  label="Delete"
+                  class="ui-button-danger"
+                  (click)="deleteBook(book)"
+      ></button></td>
+    </tr>
+  </ng-template>
+</p-table>
