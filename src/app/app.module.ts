@@ -23,6 +23,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { AddBookComponent } from './components/add-book/add-book.component';
 import { HeaderComponent } from './components/header/header.component';
 import { EditBookComponent } from './components/edit-book/edit-book.component';
+import { ShowBookComponent } from './components/show-book/show-book.component';
 
 
 @NgModule({
@@ -35,7 +36,8 @@ import { EditBookComponent } from './components/edit-book/edit-book.component';
     FooterComponent,
     AddBookComponent,
     HeaderComponent,
-    EditBookComponent
+    EditBookComponent,
+    ShowBookComponent
   ],
   imports: [
     BrowserModule,

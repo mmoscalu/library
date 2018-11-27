@@ -31,4 +31,10 @@ export class EditBookComponent implements OnInit {
       this.router.navigate(['/']);
     });
   }
+
+  // Cancel btn
+
+  backBtn() {
+    this.router.navigate(['/']);
+  }
 }
