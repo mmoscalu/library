@@ -6,4 +6,34 @@
 @import "../node_modules/primeflex/primeflex.css";
 
 /* ===== Custom Style ===== */
+.container {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  min-height: 500px;
+}
+.text-center {
+  text-align: center;
+}
+.text-white {
+  color: #fff;
+}
+.mt-5 {
+  margin-top: 5em;
+}
+.mb-5 {
+  margin-bottom: 5em;
+}
+/* ===== HomeComponent Style ===== */
+.selectAuthorTitle {
+  margin-right: .5em;
+}
+.top-bar-table {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+}
+.reset-margin-right {
+  margin-right: 0 !important;
+}
 

@@ -10,17 +10,22 @@ import {ActivatedRoute} from '@angular/router';
 export class ShowBookComponent implements OnInit {
 
   public bookId;
-  public book = {};
+  public book: any = {
+    title: '',
+    year: null,
+    author: '',
+    genre: ''
+  };
 
   constructor(
     private server: ServerService,
-    public activatedRoute: ActivatedRoute,
+    public activatedRoute: ActivatedRoute
   ) { }
 
   ngOnInit() {
 
     this.bookId = this.activatedRoute.snapshot.params['id'];
-    this.server.getBookId(this.bookId).subscribe(res => this.book = res);
+    this.server.getBookId(this.bookId).subscribe(book => this.book = book);
 
   }
 

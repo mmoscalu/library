@@ -1,21 +1,28 @@
 <h1>Books</h1>
-<div class="d-flex justify-content-between align-items-center">
-  <div class="mb-3 mt-3">
+<div class="p-grid p-align-center p-justify-between top-bar-table">
+  <div>
     <p-button label="Add book" routerLink="/new"></p-button>
   </div>
-  <form class="d-flex flex-column">
-    <label for="selectAuthor">Select authors</label>
-    <select name="selectAuthor"
-            id="selectAuthor"
-            (change)="getAuthor($event)"
+  <div class="p-grid p-align-center p-justify-around reset-margin-right">
+    <h3 class="first selectAuthorTitle">Author</h3>
+    <p-dropdown [options]="uniqAuthors"
+                (onChange)="getAuthor($event)"
+                placeholder="Any authors"
+                optionLabel="author"
     >
-      <option value="">Any</option>
-      <option *ngFor="let author of uniqAuthors" [value]="author">{{author}}</option>
-    </select>
-  </form>
+      <ng-template let-book pTemplate="selectedAuthor">
+        <span style="vertical-align:middle">{{book.label}}</span>
+      </ng-template>
+      <ng-template let-book pTemplate="selectedAuthor">
+        <span>{{book.value.author}}</span>
+      </ng-template>
+    </p-dropdown>
+  </div>
 </div>
-<!--PrimeNG table-->
-<p-table [value]="books" [responsive]="true" [paginator]="true" [rows]="10" class="mb-3">
+<!--/ Add delete message -->
+<p-toast key="myKey1"></p-toast>
+<!-- PrimeNG table -->
+<p-table [value]="books" [responsive]="true" [paginator]="true" [rows]="10">
   <ng-template pTemplate="header">
     <tr class="text-center">
       <th width="5%">Id</th>
@@ -28,12 +35,12 @@
     </tr>
   </ng-template>
   <ng-template pTemplate="body" let-book>
-    <tr class="text-center" routerLink="/books/{{book.id}}">
-      <td>{{book.id}}</td>
-      <td>{{book.title}}</td>
-      <td>{{book.year}}</td>
-      <td>{{book.author}}</td>
-      <td>{{book.genre}}</td>
+    <tr class="text-center">
+      <td><a routerLink="/books/{{book.id}}">{{book.id}}</a></td>
+      <td><a routerLink="/books/{{book.id}}">{{book.title}}</a></td>
+      <td><a routerLink="/books/{{book.id}}">{{book.year}}</a></td>
+      <td><a routerLink="/books/{{book.id}}">{{book.author}}</a></td>
+      <td><a routerLink="/books/{{book.id}}">{{book.genre}}</a></td>
       <td><button pButton
                   type="button"
                   label="Edit"

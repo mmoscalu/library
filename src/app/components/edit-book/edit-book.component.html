@@ -1,53 +1,56 @@
-<h2>Edit book: {{book.title}}</h2>
-<form class="col-md-6 mx-auto text-center border mt-3 mb-3 p-3 shadow-lg bg-white rounded"  #form="ngForm" (submit)="editBook(book)">
-  <div>
-    <div class="ui-g ui-fluid">
-      <label for="title">Edit title book</label>
-      <input type="text"
-             pInputText
-             name="title"
-             id="title"
-             #title="ngModel"
-             [(ngModel)]="book.title"
-             required
-      />
+<div class="container">
+  <h2>Edit book: {{book.title}}</h2>
+  <form class="col-md-6 mx-auto text-center border mt-3 mb-3 p-3 shadow-lg bg-white rounded"  #form="ngForm" (submit)="editBook(book)">
+    <div>
+      <div class="ui-g ui-fluid">
+        <label for="title">Edit title book</label>
+        <input type="text"
+               pInputText
+               name="title"
+               id="title"
+               #title="ngModel"
+               [(ngModel)]="book.title"
+               required
+        />
+      </div>
+      <div class="ui-g ui-fluid">
+        <label for="author">Edit year book</label>
+        <input type="text"
+               pInputText
+               name="year"
+               id="year"
+               #year="ngModel"
+               [(ngModel)]="book.year"
+               required
+        />
+      </div>
+      <div class="ui-g ui-fluid">
+        <label for="author">Edit author book</label>
+        <input type="text"
+               pInputText
+               name="author"
+               id="author"
+               #author="ngModel"
+               [(ngModel)]="book.author"
+               required
+        />
+      </div>
+      <div class="ui-g ui-fluid">
+        <label for="author">Edit genre book</label>
+        <input type="text"
+               pInputText
+               name="genre"
+               id="genre"
+               #genre="ngModel"
+               [(ngModel)]="book.genre"
+               required
+        />
+      </div>
     </div>
-    <div class="ui-g ui-fluid">
-      <label for="author">Edit year book</label>
-      <input type="text"
-             pInputText
-             name="year"
-             id="year"
-             #year="ngModel"
-             [(ngModel)]="book.year"
-             required
-      />
-    </div>
-    <div class="ui-g ui-fluid">
-      <label for="author">Edit author book</label>
-      <input type="text"
-             pInputText
-             name="author"
-             id="author"
-             #author="ngModel"
-             [(ngModel)]="book.author"
-             required
-      />
-    </div>
-    <div class="ui-g ui-fluid">
-      <label for="author">Edit genre book</label>
-      <input type="text"
-             pInputText
-             name="genre"
-             id="genre"
-             #genre="ngModel"
-             [(ngModel)]="book.genre"
-             required
-      />
-    </div>
-  </div>
-  <button class="btn btn-primary mt-3 shadow-lg rounded">Save</button>
-  <button class="btn btn-danger mt-3 shadow-lg rounded"
-          (click)="backBtn()"
-  >Cancel</button>
-</form>
+    <button class="">Save</button>
+    <button class="btn btn-danger mt-3 shadow-lg rounded"
+            (click)="backBtn()"
+    >Cancel</button>
+  </form>
+</div>
+

@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ServerService } from '../../services/server.service';
 
-
 import { Book } from '../../models/book';
+
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -10,15 +10,12 @@ import { Book } from '../../models/book';
 })
 export class HomeComponent implements OnInit {
 
-  public books: Book[];
-  public uniqAuthors = [];
-  public allAuthors = [];
+  books: Book[];
+  uniqAuthors: Book[];
 
   constructor(
     public server: ServerService
-  ) {
-
-  }
+  ) {}
 
 
   ngOnInit() {
@@ -27,25 +24,19 @@ export class HomeComponent implements OnInit {
 
     this.server.getAllBooks().subscribe(res => {
       this.books = res;
-      // Get all authors
-      this.getAllAuthor(this.books);
 
-    });
+      // Get all uniq authors
 
-  }
+      this.uniqAuthors = this.books.filter((item, index, arr) =>
+        index === arr.findIndex((uniq) => (
+          uniq.author === item.author
+        ))
+      );
 
-  // Get all authors
+      // Add any authors to set routing from all books
 
-  getAllAuthor(books) {
+      this.uniqAuthors.unshift( {author: 'Any authors'});
 
-    this.allAuthors = books.map(book => {
-      return book.author;
-    });
-
-    // Get unique authors
-
-    this.uniqAuthors = this.allAuthors.sort().filter(function(item, elem, arr) {
-      return arr.indexOf(item) === elem;
     });
 
   }
@@ -54,8 +45,12 @@ export class HomeComponent implements OnInit {
 
   getAuthor(event) {
 
-    const author = event.target.value;
-    this.server.getAuthor(author).subscribe(res => this.books = res);
+    const author = event.value.author;
+    if (author !== 'Any authors') {
+      this.server.getAuthor(author).subscribe(res => this.books = res);
+    } else {
+      this.server.getAllBooks().subscribe(res => this.books = res);
+    }
 
   }
 
@@ -64,12 +59,10 @@ export class HomeComponent implements OnInit {
   deleteBook(book) {
 
     if (confirm('Do you want to delete this book?')) {
-
       this.server.deleteBook(book).subscribe(res => {
         const index = this.books.indexOf(book);
         this.books.splice(index,1);
       });
-
     }
   }
 

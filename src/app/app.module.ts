@@ -9,10 +9,14 @@ import { DataBaseService } from './services/data-base.service';
 import { ServerService } from './services/server.service';
 import { AppRoutingModule } from './app-routing.module';
 
+// PrimeNg
 import {TableModule} from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
 import { MenubarModule } from 'primeng/menubar';
 import { InputTextModule } from 'primeng/inputtext';
+import { DropdownModule } from 'primeng/dropdown';
+import { GrowlModule } from 'primeng/growl';
+import { ToastModule } from 'primeng/toast';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
@@ -24,6 +28,8 @@ import { AddBookComponent } from './components/add-book/add-book.component';
 import { HeaderComponent } from './components/header/header.component';
 import { EditBookComponent } from './components/edit-book/edit-book.component';
 import { ShowBookComponent } from './components/show-book/show-book.component';
+import {MessageService} from 'primeng/api';
+
 
 
 @NgModule({
@@ -49,9 +55,12 @@ import { ShowBookComponent } from './components/show-book/show-book.component';
     ButtonModule,
     MenubarModule,
     FormsModule,
-    InputTextModule
+    InputTextModule,
+    DropdownModule,
+    GrowlModule,
+    ToastModule
   ],
-  providers: [ServerService],
+  providers: [ServerService, MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

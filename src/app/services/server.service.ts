@@ -29,7 +29,8 @@ export class ServerService {
 
   getBookId(id): Observable<Book[]> {
 
-    return this.httpClient.get<Book[]>(this.booksUrl + '/' + id);
+    const url = `${this.booksUrl}/${id}`;
+    return this.httpClient.get<Book[]>(url);
 
   }
 
