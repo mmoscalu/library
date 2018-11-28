@@ -24,6 +24,12 @@
 .mb-1 {
   margin-bottom: 1em !important;
 }
+.pt-1{
+ padding-top: 1em;
+}
+.pb-1{
+  padding-bottom: 1em;
+}
 .mt-5 {
   margin-top: 5em !important;
 }
@@ -37,6 +43,10 @@
   opacity: .65;
   cursor: unset;
 }
+.shadow {
+  box-shadow: 0 1rem 3rem rgba(0,0,0,.175);
+  border-radius: .25rem;
+}
 /* ===== HomeComponent Style ===== */
 .selectAuthorTitle {
   margin-right: .5em;
@@ -48,5 +58,16 @@
 }
 .reset-margin-right {
   margin-right: 0 !important;
+}
+/* ===== Menu ===== */
+body .ui-megamenu{
+  border: none;
+  background-color: transparent;
+}
+body .ui-megamenu .ui-menuitem-link .ui-menuitem-icon, body .ui-megamenu .ui-menuitem-link .ui-menuitem-text {
+  color: #fff !important;
+}
+body .ui-megamenu .ui-menuitem-link:hover > *{
+  color: #000 !important;
 }
 

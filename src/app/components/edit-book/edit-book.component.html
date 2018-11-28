@@ -1,57 +1,82 @@
-<div class="container text-center">
+<div class="text-center">
   <h2>Edit book: {{book.title}}</h2>
-  <p-messages [(value)]="msgs"></p-messages>
-  <form class="col-md-6 mx-auto text-center border mt-3 mb-3 p-3 shadow-lg bg-white rounded"  #form="ngForm" (submit)="editBook(book)">
-    <div>
-      <div class="ui-g ui-fluid">
-        <label for="title">Edit title book</label>
-        <input type="text"
-               pInputText
-               name="title"
-               id="title"
-               #title="ngModel"
-               [(ngModel)]="book.title"
-               required
-        />
-      </div>
-      <div class="ui-g ui-fluid">
-        <label for="author">Edit year book</label>
-        <input type="text"
-               pInputText
-               name="year"
-               id="year"
-               #year="ngModel"
-               [(ngModel)]="book.year"
-               required
-        />
-      </div>
-      <div class="ui-g ui-fluid">
-        <label for="author">Edit author book</label>
-        <input type="text"
-               pInputText
-               name="author"
-               id="author"
-               #author="ngModel"
-               [(ngModel)]="book.author"
-               required
-        />
-      </div>
-      <div class="ui-g ui-fluid">
-        <label for="author">Edit genre book</label>
-        <input type="text"
-               pInputText
-               name="genre"
-               id="genre"
-               #genre="ngModel"
-               [(ngModel)]="book.genre"
-               required
-        />
-      </div>
+  <!-- Message -->
+  <div class="ui-g ui-fluid">
+    <div class="ui-g-12 ui-md-6 ui-md-offset-3">
+      <p-messages [(value)]="msgs"></p-messages>
     </div>
-    <button (click)="showMessage()" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btn mt-1">Save</button>
-    <button class="ui-button-danger ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btn mt-1"
-            (click)="backBtn()"
-    >Cancel</button>
+    <!--/ui-g-12 ui-md-6 ui-md-offset-3-->
+  </div>
+  <!--/ui-g ui-fluid-->
+  <!-- /Message -->
+  <form #form="ngForm" (submit)="editBook(book)">
+    <div class="shadow ui-g-12 ui-md-6 ui-md-offset-3 pb-1 pt-1">
+      <div class="ui-g ui-fluid">
+        <div class="ui-g-12">
+          <label for="title">Edit title book</label>
+          <input type="text"
+                 pInputText
+                 name="title"
+                 id="title"
+                 #title="ngModel"
+                 [(ngModel)]="book.title"
+                 required
+          />
+        </div>
+        <!--/ui-g-12-->
+      </div>
+      <!--/ui-g ui-fluid-->
+      <div class="ui-g ui-fluid">
+        <div class="ui-g-12">
+          <label for="author">Edit year book</label>
+          <input type="text"
+                 pInputText
+                 name="year"
+                 id="year"
+                 #year="ngModel"
+                 [(ngModel)]="book.year"
+                 required
+          />
+        </div>
+        <!--/ui-g-12-->
+      </div>
+      <!--/ui-g ui-fluid-->
+      <div class="ui-g ui-fluid">
+        <div class="ui-g-12">
+          <label for="author">Edit author book</label>
+          <input type="text"
+                 pInputText
+                 name="author"
+                 id="author"
+                 #author="ngModel"
+                 [(ngModel)]="book.author"
+                 required
+          />
+        </div>
+        <!--/ui-g-12-->
+      </div>
+      <!--/ui-g ui-fluid-->
+      <div class="ui-g ui-fluid">
+        <div class="ui-g-12">
+          <label for="author">Edit genre book</label>
+          <input type="text"
+                 pInputText
+                 name="genre"
+                 id="genre"
+                 #genre="ngModel"
+                 [(ngModel)]="book.genre"
+                 required
+          />
+        </div>
+        <!--/ui-g-12-->
+      </div>
+      <!--/ui-g ui-fluid-->
+      <button (click)="showMessage()" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btn mt-1">Save</button>
+      <button class="ui-button-danger ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btn mt-1"
+              (click)="backBtn()"
+      >Cancel</button>
+    </div>
+    <!--/shadow-->
   </form>
 </div>
 

@@ -16,7 +16,9 @@ import { MenubarModule } from 'primeng/menubar';
 import { InputTextModule } from 'primeng/inputtext';
 import { DropdownModule } from 'primeng/dropdown';
 import { MessagesModule } from 'primeng/messages';
+import { MegaMenuModule } from 'primeng/megamenu';
 
+// Components
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import { ContactComponent } from './components/contact/contact.component';
@@ -55,7 +57,8 @@ import { ShowBookComponent } from './components/show-book/show-book.component';
     FormsModule,
     InputTextModule,
     DropdownModule,
-    MessagesModule
+    MessagesModule,
+    MegaMenuModule
   ],
   providers: [ServerService],
   bootstrap: [AppComponent]
