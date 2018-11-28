@@ -34,10 +34,30 @@ export class HomeComponent implements OnInit {
         ))
       );
 
+      this.uniqAuthorSort(this.uniqAuthors);
+
       // Add any authors to set routing from all books
 
       this.uniqAuthors.unshift( {author: 'Any authors'});
 
+
+
+    });
+
+  }
+
+  // Sort authors
+
+   uniqAuthorSort(books) {
+
+    books.sort(function (a, b) {
+      if (a.author > b.author) {
+        return 1;
+      }
+      if (a.author < b.author) {
+        return -1;
+      }
+      return 0;
     });
 
   }
