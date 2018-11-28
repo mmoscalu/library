@@ -15,8 +15,7 @@ import { ButtonModule } from 'primeng/button';
 import { MenubarModule } from 'primeng/menubar';
 import { InputTextModule } from 'primeng/inputtext';
 import { DropdownModule } from 'primeng/dropdown';
-import { GrowlModule } from 'primeng/growl';
-import { ToastModule } from 'primeng/toast';
+import { MessagesModule } from 'primeng/messages';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
@@ -28,7 +27,6 @@ import { AddBookComponent } from './components/add-book/add-book.component';
 import { HeaderComponent } from './components/header/header.component';
 import { EditBookComponent } from './components/edit-book/edit-book.component';
 import { ShowBookComponent } from './components/show-book/show-book.component';
-import {MessageService} from 'primeng/api';
 
 
 
@@ -57,10 +55,9 @@ import {MessageService} from 'primeng/api';
     FormsModule,
     InputTextModule,
     DropdownModule,
-    GrowlModule,
-    ToastModule
+    MessagesModule
   ],
-  providers: [ServerService, MessageService],
+  providers: [ServerService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

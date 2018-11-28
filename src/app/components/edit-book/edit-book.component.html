@@ -1,5 +1,6 @@
-<div class="container">
+<div class="container text-center">
   <h2>Edit book: {{book.title}}</h2>
+  <p-messages [(value)]="msgs"></p-messages>
   <form class="col-md-6 mx-auto text-center border mt-3 mb-3 p-3 shadow-lg bg-white rounded"  #form="ngForm" (submit)="editBook(book)">
     <div>
       <div class="ui-g ui-fluid">
@@ -47,8 +48,8 @@
         />
       </div>
     </div>
-    <button class="">Save</button>
-    <button class="btn btn-danger mt-3 shadow-lg rounded"
+    <button (click)="showMessage()" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btn mt-1">Save</button>
+    <button class="ui-button-danger ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only btn mt-1"
             (click)="backBtn()"
     >Cancel</button>
   </form>

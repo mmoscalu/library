@@ -19,8 +19,8 @@
     </p-dropdown>
   </div>
 </div>
-<!--/ Add delete message -->
-<p-toast key="myKey1"></p-toast>
+<!-- Show delete message-->
+<p-messages [(value)]="msgs"></p-messages>
 <!-- PrimeNG table -->
 <p-table [value]="books" [responsive]="true" [paginator]="true" [rows]="10">
   <ng-template pTemplate="header">

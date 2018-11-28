@@ -33,7 +33,9 @@ export class AddBookComponent implements OnInit {
   addBook(book) {
 
     this.server.addBook(book).subscribe(res => {
+      setTimeout(() => {
         this.router.navigate(['/']);
+      }, 2000);
     });
 
   }
@@ -46,9 +48,10 @@ export class AddBookComponent implements OnInit {
 
   }
 
-  showSuccess() {
-    this.msgs = [];
-    this.msgs.push({severity: 'success', summary: 'New book successfully added'});
+  // Show message
+
+  showMessage() {
+    this.msgs.push({severity: 'success', summary: 'Book successfully added'});
   }
 
 }

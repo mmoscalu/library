@@ -12,6 +12,7 @@ export class HomeComponent implements OnInit {
 
   books: Book[];
   uniqAuthors: Book[];
+  msgs = [];
 
   constructor(
     public server: ServerService
@@ -62,6 +63,12 @@ export class HomeComponent implements OnInit {
       this.server.deleteBook(book).subscribe(res => {
         const index = this.books.indexOf(book);
         this.books.splice(index,1);
+        // Add delete message
+        this.msgs.push({severity: 'error', summary: 'Book successfully deleted'});
+        // Close delete message
+        setTimeout(() => {
+          this.msgs = [];
+        }, 2000);
       });
     }
   }

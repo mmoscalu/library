@@ -18,11 +18,24 @@
 .text-white {
   color: #fff;
 }
+.mt-1 {
+  margin-top: 1em !important;
+}
+.mb-1 {
+  margin-bottom: 1em !important;
+}
 .mt-5 {
-  margin-top: 5em;
+  margin-top: 5em !important;
 }
 .mb-5 {
-  margin-bottom: 5em;
+  margin-bottom: 5em !important;
+}
+.btn {
+  padding: 0.429em 1em;
+}
+.btn:disabled, .btn:disabled:hover {
+  opacity: .65;
+  cursor: unset;
 }
 /* ===== HomeComponent Style ===== */
 .selectAuthorTitle {

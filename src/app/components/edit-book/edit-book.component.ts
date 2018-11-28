@@ -10,6 +10,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class EditBookComponent implements OnInit {
 
   bookId;
+  msgs = [];
 
   public book: any = {
     title: '',
@@ -37,7 +38,9 @@ export class EditBookComponent implements OnInit {
 
     const updateBook = Object.assign({}, book);
     this.server.editBook(updateBook).subscribe(res => {
-      this.router.navigate(['/']);
+      setTimeout(() => {
+        this.router.navigate(['/']);
+      }, 2000);
     });
 
   }
@@ -48,6 +51,12 @@ export class EditBookComponent implements OnInit {
 
     this.router.navigate(['/']);
 
+  }
+
+  // Show message
+
+  showMessage() {
+    this.msgs.push({severity: 'success', summary: 'Book successfully edited'});
   }
 
 }
