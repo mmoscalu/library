@@ -51,7 +51,9 @@ export class AddBookComponent implements OnInit {
   // Show message
 
   showMessage() {
+
     this.msgs.push({severity: 'success', summary: 'Book successfully added'});
+
   }
 
 }

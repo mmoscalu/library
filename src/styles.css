@@ -6,6 +6,7 @@
 @import "../node_modules/primeflex/primeflex.css";
 
 /* ===== Custom Style ===== */
+
 .container {
   width: 90%;
   margin-left: auto;
@@ -13,7 +14,7 @@
   min-height: 500px;
 }
 .text-center {
-  text-align: center;
+  text-align: center!important;
 }
 .text-white {
   color: #fff;
@@ -47,7 +48,14 @@
   box-shadow: 0 1rem 3rem rgba(0,0,0,.175);
   border-radius: .25rem;
 }
+/* ===== Header ===== */
+
+header {
+  background-color: black;
+}
+
 /* ===== HomeComponent Style ===== */
+
 .selectAuthorTitle {
   margin-right: .5em;
 }
@@ -59,7 +67,9 @@
 .reset-margin-right {
   margin-right: 0 !important;
 }
+
 /* ===== Menu ===== */
+
 body .ui-megamenu{
   border: none;
   background-color: transparent;
@@ -69,5 +79,27 @@ body .ui-megamenu .ui-menuitem-link .ui-menuitem-icon, body .ui-megamenu .ui-men
 }
 body .ui-megamenu .ui-menuitem-link:hover > *{
   color: #000 !important;
+}
+
+/* ===== Footer ===== */
+
+footer {
+  background-color: black;
+  height: 100px;
+}
+
+/* ===== Media =====  */
+
+@media (max-width: 320px) {
+  .select-wrap {
+    flex-direction: column;
+  }
+}
+@media (max-width: 479px) {
+  table .ui-button-text.ui-clickable {
+    width: 200px!important;
+    margin-right: auto;
+    margin-left: auto;
+  }
 }
 

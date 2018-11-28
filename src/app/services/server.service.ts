@@ -13,11 +13,11 @@ export class ServerService {
   ) { }
 
 
-  // set api url
+  // Set api url
 
   public booksUrl = 'api/books';
 
-  // get all books
+  // Get all books
 
   getAllBooks(): Observable<Book[]> {
 
@@ -25,7 +25,7 @@ export class ServerService {
 
   }
 
-  // get book from id
+  // Get book from id
 
   getBookId(id): Observable<Book[]> {
 
@@ -34,7 +34,7 @@ export class ServerService {
 
   }
 
-  // add new book
+  // Add new book
 
   addBook(book): Observable<Book[]> {
 

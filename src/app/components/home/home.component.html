@@ -1,8 +1,10 @@
 <h1>Books</h1>
-<div class="p-grid p-align-center p-justify-between top-bar-table">
+<div class="p-grid p-align-center p-justify-between top-bar-table select-wrap">
+  <!-- Add book -->
   <div>
     <p-button label="Add book" routerLink="/new"></p-button>
   </div>
+  <!-- Select author-->
   <div class="p-grid p-align-center p-justify-around reset-margin-right">
     <h3 class="first selectAuthorTitle">Author</h3>
     <p-dropdown [options]="uniqAuthors"
@@ -36,18 +38,19 @@
   </ng-template>
   <ng-template pTemplate="body" let-book>
     <tr class="text-center">
-      <td><a routerLink="/books/{{book.id}}">{{book.id}}</a></td>
-      <td><a routerLink="/books/{{book.id}}">{{book.title}}</a></td>
-      <td><a routerLink="/books/{{book.id}}">{{book.year}}</a></td>
-      <td><a routerLink="/books/{{book.id}}">{{book.author}}</a></td>
-      <td><a routerLink="/books/{{book.id}}">{{book.genre}}</a></td>
-      <td><button pButton
+      <td class="text-center"><a routerLink="/books/{{book.id}}">{{book.id}}</a></td>
+      <td class="text-center"><a routerLink="/books/{{book.id}}">{{book.title}}</a></td>
+      <td class="text-center"><a routerLink="/books/{{book.id}}">{{book.year}}</a></td>
+      <td class="text-center"><a routerLink="/books/{{book.id}}">{{book.author}}</a></td>
+      <td class="text-center"><a routerLink="/books/{{book.id}}">{{book.genre}}</a></td>
+      <td class="text-center"><button pButton
                   type="button"
                   label="Edit"
                   class="ui-button-warning"
                   routerLink="/edit/{{book.id}}"
       ></button></td>
-      <td><button pButton
+      <td class="text-center"><button
+                  pButton
                   type="button"
                   label="Delete"
                   class="ui-button-danger"
