@@ -67,6 +67,14 @@ export class ServerService {
 
   }
 
+  // Get all authors
+
+  getAuthors(): Observable<Book[]> {
+
+    const url = `${this.booksUrl}/?author`;
+    return this.httpClient.get<Book[]>(url);
+
+  }
 
   // Get author
 

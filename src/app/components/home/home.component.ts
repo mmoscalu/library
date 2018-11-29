@@ -11,6 +11,7 @@ import { Book } from '../../models/book';
 export class HomeComponent implements OnInit {
 
   books: Book[];
+  authors: Book[];
   uniqAuthors: Book[];
   msgs = [];
 
@@ -23,12 +24,16 @@ export class HomeComponent implements OnInit {
 
     // Get all book
 
-    this.server.getAllBooks().subscribe(res => {
-      this.books = res;
+    this.server.getAllBooks().subscribe(res => this.books = res);
+
+    // Get all authors
+
+    this.server.getAuthors().subscribe(res => {
+      this.authors = res;
 
       // Get all uniq authors
 
-      this.uniqAuthors = this.books.filter((item, index, arr) =>
+      this.uniqAuthors = this.authors.filter((item, index, arr) =>
         index === arr.findIndex((uniq) => (
           uniq.author === item.author
         ))
@@ -38,9 +43,7 @@ export class HomeComponent implements OnInit {
 
       // Add any authors to set routing from all books
 
-      this.uniqAuthors.unshift( {author: 'Any authors'});
-
-
+      this.uniqAuthors.unshift({author: 'Any authors'});
 
     });
 
@@ -83,6 +86,7 @@ export class HomeComponent implements OnInit {
       this.server.deleteBook(book).subscribe(res => {
         const index = this.books.indexOf(book);
         this.books.splice(index,1);
+        this.authors.splice(index,1);
 
         // Add delete message
 
@@ -95,6 +99,7 @@ export class HomeComponent implements OnInit {
         }, 2000);
       });
     }
+
   }
 
 }
