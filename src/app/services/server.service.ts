@@ -1,9 +1,8 @@
-import { Injectable } from '@angular/core';
+import { Injectable} from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
-
 import { Book } from '../models/book';
-
+import { map } from 'rxjs/operators';
 
 @Injectable()
 export class ServerService {
@@ -19,9 +18,13 @@ export class ServerService {
 
   // Get all books
 
-  getAllBooks(): Observable<Book[]> {
-
-    return this.httpClient.get<Book[]>(this.booksUrl);
+  getAllBooks(): Observable<Book[]>{
+   return this.httpClient.get<Book[]>(this.booksUrl).pipe(
+    map(data => {
+      return data;
+    })
+   )
+   
 
   }
 
