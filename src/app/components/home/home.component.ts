@@ -1,19 +1,31 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ServerService } from '../../services/server.service';
 
 import { Book } from '../../models/book';
+import { Subscription, Observable } from 'rxjs';
+import { map, flatMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, OnDestroy {
 
   books: Book[];
   authors: Book[];
   uniqAuthors: Book[];
   msgs = [];
+  subscription: Subscription;
+  obsBooks: Observable<any>;
+  obsAuthors: Observable<any>;
+  all;
+
+  auth = [
+    { id: 1, title: 'Second', year: 1726, author: 'Jonathan Swift', genre: 'Adventure' },
+    { id: 2, title: 'First', year: 1971, author: 'Jules Verne', genre: 'Novel' },
+    { id: 3, title: 'Third', year: 1882, author: 'Robert Louis Stevenson', genre: 'Adventure' },
+  ];
 
   constructor(
     public server: ServerService
@@ -24,7 +36,15 @@ export class HomeComponent implements OnInit {
 
     // Get all book
 
-    this.server.getAllBooks().subscribe(res => this.books = res);
+    this.server.getAllBooks().subscribe(res => {
+      this.books = res;
+      this.obsBooks = Observable.of(this.books);
+      this.obsAuthors = Observable.of(this.auth);
+      Observable
+        .forkJoin(this.obsBooks, this.obsAuthors)
+        .map(([s1, s2]) => [...s1, ...s2])
+        .subscribe(res => console.log(res));
+    });
 
     // Get all authors
 
@@ -99,6 +119,18 @@ export class HomeComponent implements OnInit {
       });
     }
 
+  }
+
+  getNew(id) {
+    return this.server.getNewBookId(id).pipe(
+      map(res => {
+        return res.title;
+      })
+    ).subscribe(res => console.log(res));
+  }
+
+  ngOnDestroy(){
+    this.subscription.unsubscribe();
   }
 
 }

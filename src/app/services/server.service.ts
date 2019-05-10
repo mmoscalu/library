@@ -37,6 +37,13 @@ export class ServerService {
 
   }
 
+  getNewBookId(id): Observable<Book>{
+
+    const url = `${this.booksUrl}/${id}`;
+    return this.httpClient.get<Book>(url);
+
+  }
+
   // Add new book
 
   addBook(book): Observable<Book[]> {
